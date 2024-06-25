@@ -4,10 +4,25 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-import React from "react";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { FlexProps } from "@aws-amplify/ui-react";
+import * as React from "react";
+import { FlexProps, TextProps } from "@aws-amplify/ui-react";
+export declare type EscapeHatchProps = {
+    [elementHierarchy: string]: Record<string, unknown>;
+} | null;
+export declare type VariantValues = {
+    [key: string]: string;
+};
+export declare type Variant = {
+    variantValues: VariantValues;
+    overrides: EscapeHatchProps;
+};
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type LearnCounterOverridesProps = {
+    LearnCounter?: PrimitiveOverrideProps<FlexProps>;
+    "Time to Complete"?: PrimitiveOverrideProps<TextProps>;
+    "2h 36m"?: PrimitiveOverrideProps<TextProps>;
+} & EscapeHatchProps;
 export declare type LearnCounterProps = React.PropsWithChildren<Partial<FlexProps> & {
-    overrides?: EscapeHatchProps | undefined | null;
+    overrides?: LearnCounterOverridesProps | undefined | null;
 }>;
 export default function LearnCounter(props: LearnCounterProps): React.ReactElement;

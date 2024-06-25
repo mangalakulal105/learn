@@ -23,13 +23,13 @@ export async function getFeaturedCourseData(
   const { DataStore } = withSSRContext(context);
 
   const courses: Course[] = await DataStore.query(Course, (c: any) =>
-    c.published("eq", true)
+    c.published.eq(true)
   );
 
   if (courses.length > 0) {
     const featuredCourses: Course[] = await DataStore.query(Course, (c: any) =>
-      c.published("eq", true).isFeatured("eq", true)
-    );
+      c.published.eq(true) && c.isFeatured.eq(true)
+  );
 
     const course =
       featuredCourses.length === 1 ? featuredCourses[0] : courses[0];
@@ -49,6 +49,8 @@ export async function getCourseTags(
   const { DataStore } = withSSRContext(context);
 
   const courseTags: CourseTag[] = await DataStore.query(CourseTag);
+
+  // console.log(courseTags)
 
   const filteredCourseTags = courseTags.filter(
     (e) => e.course.published && e.course.id === courseId
@@ -114,17 +116,16 @@ export async function getCourseAndLessonData(
   );
 
   const courseResults: Course[] = await DataStore.query(Course, (c: any) =>
-    c
-      .published("eq", true)
-      .id("beginsWith", courseIdPrefix)
-      .courseUrlTitle("eq", originalCourseUrlTitle)
+    c.published.eq(true) &&
+    c.id.beginsWith(courseIdPrefix) &&
+    c.courseUrlTitle.eq(originalCourseUrlTitle)
   );
 
   const courseResult = courseResults[0];
 
   if (courseResult) {
     const lessons: Lesson[] = await DataStore.query(Lesson, (l: any) =>
-      l.lessonCourseLessonId("eq", courseResult.id)
+      l.lessonCourseLessonId.eq(courseResult.id)
     );
 
     const lessonsSorted = lessons.sort(

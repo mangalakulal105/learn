@@ -4,10 +4,23 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-import React from "react";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
 import { IconProps } from "@aws-amplify/ui-react";
+export declare type EscapeHatchProps = {
+    [elementHierarchy: string]: Record<string, unknown>;
+} | null;
+export declare type VariantValues = {
+    [key: string]: string;
+};
+export declare type Variant = {
+    variantValues: VariantValues;
+    overrides: EscapeHatchProps;
+};
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type HeartIconOverridesProps = {
+    HeartIcon?: PrimitiveOverrideProps<IconProps>;
+} & EscapeHatchProps;
 export declare type HeartIconProps = React.PropsWithChildren<Partial<IconProps> & {
-    overrides?: EscapeHatchProps | undefined | null;
+    overrides?: HeartIconOverridesProps | undefined | null;
 }>;
 export default function HeartIcon(props: HeartIconProps): React.ReactElement;

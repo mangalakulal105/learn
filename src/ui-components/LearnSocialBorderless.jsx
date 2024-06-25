@@ -5,12 +5,12 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import {
   getOverrideProps,
   getOverridesFromVariants,
   mergeVariantsAndOverrides,
-} from "@aws-amplify/ui-react/internal";
+} from "./utils";
 import GithubIcon from "./GithubIcon";
 import { View } from "@aws-amplify/ui-react";
 export default function LearnSocialBorderless(props) {
@@ -46,8 +46,8 @@ export default function LearnSocialBorderless(props) {
       position="relative"
       borderRadius="100px"
       padding="0px 0px 0px 0px"
-      {...rest}
       {...getOverrideProps(overrides, "LearnSocialBorderless")}
+      {...rest}
     >
       <GithubIcon
         position="absolute"

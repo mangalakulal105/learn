@@ -5,8 +5,8 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps } from "./utils";
 import { Icon } from "@aws-amplify/ui-react";
 export default function MenuIcon(props) {
   const { overrides, ...rest } = props;
@@ -41,8 +41,8 @@ export default function MenuIcon(props) {
           style: { transform: "translate(2px, 21px)" },
         },
       ]}
-      {...rest}
       {...getOverrideProps(overrides, "MenuIcon")}
+      {...rest}
     ></Icon>
   );
 }

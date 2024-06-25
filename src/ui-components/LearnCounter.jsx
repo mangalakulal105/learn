@@ -5,8 +5,8 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps } from "./utils";
 import { Flex, Text } from "@aws-amplify/ui-react";
 export default function LearnCounter(props) {
   const { overrides, ...rest } = props;
@@ -17,8 +17,8 @@ export default function LearnCounter(props) {
       alignItems="center"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...rest}
       {...getOverrideProps(overrides, "LearnCounter")}
+      {...rest}
     >
       <Text
         fontFamily="Amazon Ember Display"

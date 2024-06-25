@@ -4,10 +4,24 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-import React from "react";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
 import { CardLayoutProps } from "./CardLayout";
 import { CollectionProps } from "@aws-amplify/ui-react";
+export declare type EscapeHatchProps = {
+    [elementHierarchy: string]: Record<string, unknown>;
+} | null;
+export declare type VariantValues = {
+    [key: string]: string;
+};
+export declare type Variant = {
+    variantValues: VariantValues;
+    overrides: EscapeHatchProps;
+};
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type CardLayoutCollectionOverridesProps = {
+    CardLayoutCollection?: PrimitiveOverrideProps<CollectionProps>;
+    CardLayout?: CardLayoutProps;
+} & EscapeHatchProps;
 export declare type CardLayoutCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
     items?: any[];
     overrideItems?: (collectionItem: {
@@ -15,6 +29,6 @@ export declare type CardLayoutCollectionProps = React.PropsWithChildren<Partial<
         index: number;
     }) => CardLayoutProps;
 } & {
-    overrides?: EscapeHatchProps | undefined | null;
+    overrides?: CardLayoutCollectionOverridesProps | undefined | null;
 }>;
 export default function CardLayoutCollection(props: CardLayoutCollectionProps): React.ReactElement;

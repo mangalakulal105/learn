@@ -5,8 +5,8 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps } from "./utils";
 import { Icon } from "@aws-amplify/ui-react";
 export default function PlayIcon(props) {
   const { overrides, ...rest } = props;
@@ -27,8 +27,8 @@ export default function PlayIcon(props) {
           style: { transform: "translate(29.17%, 16.67%)" },
         },
       ]}
-      {...rest}
       {...getOverrideProps(overrides, "PlayIcon")}
+      {...rest}
     ></Icon>
   );
 }

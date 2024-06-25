@@ -5,12 +5,12 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import {
   getOverrideProps,
   getOverridesFromVariants,
   mergeVariantsAndOverrides,
-} from "@aws-amplify/ui-react/internal";
+} from "./utils";
 import { Flex, Icon, Text } from "@aws-amplify/ui-react";
 export default function ContributorLarge(props) {
   const { contributor, overrides: overridesProp, ...rest } = props;
@@ -78,8 +78,8 @@ export default function ContributorLarge(props) {
       alignItems="center"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...rest}
       {...getOverrideProps(overrides, "ContributorLarge")}
+      {...rest}
     >
       <Flex
         gap="10px"

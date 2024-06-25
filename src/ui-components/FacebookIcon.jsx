@@ -5,8 +5,8 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps } from "./utils";
 import { Icon } from "@aws-amplify/ui-react";
 export default function FacebookIcon(props) {
   const { overrides, ...rest } = props;
@@ -25,8 +25,8 @@ export default function FacebookIcon(props) {
           style: { transform: "translate(29.17%, 12.5%)" },
         },
       ]}
-      {...rest}
       {...getOverrideProps(overrides, "FacebookIcon")}
+      {...rest}
     ></Icon>
   );
 }

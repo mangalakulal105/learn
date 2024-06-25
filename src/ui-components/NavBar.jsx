@@ -5,16 +5,13 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import {
-  getOverrideProps,
-  useNavigateAction,
-} from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps, useNavigateAction } from "./utils";
 import LearnLogo from "./LearnLogo";
 import { Button, Flex, View } from "@aws-amplify/ui-react";
 import LearnMenuItem from "./LearnMenuItem";
 export default function NavBar(props) {
-  const { overrides, ...rest } = props;
+  const { navBar, overrides, ...rest } = props;
   const frameFourZeroEightOnClick = useNavigateAction({
     target: "_blank",
     type: "url",
@@ -32,8 +29,8 @@ export default function NavBar(props) {
       boxShadow="0px 4px 16px rgba(0, 0, 0, 0.03999999910593033)"
       padding="0px 32px 0px 32px"
       backgroundColor="rgba(255,255,255,1)"
-      {...rest}
       {...getOverrideProps(overrides, "NavBar")}
+      {...rest}
     >
       <Flex
         gap="40px"

@@ -5,8 +5,8 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps } from "./utils";
 import { Icon, View } from "@aws-amplify/ui-react";
 export default function GithubIcon(props) {
   const { overrides, ...rest } = props;
@@ -16,8 +16,8 @@ export default function GithubIcon(props) {
       height="24px"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...rest}
       {...getOverrideProps(overrides, "GithubIcon")}
+      {...rest}
     >
       <View
         position="absolute"

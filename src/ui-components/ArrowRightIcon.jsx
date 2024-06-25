@@ -5,8 +5,8 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps } from "./utils";
 import { Icon } from "@aws-amplify/ui-react";
 export default function ArrowRightIcon(props) {
   const { overrides, ...rest } = props;
@@ -26,8 +26,8 @@ export default function ArrowRightIcon(props) {
           style: { transform: "translate(16.67%, 16.67%)" },
         },
       ]}
-      {...rest}
       {...getOverrideProps(overrides, "ArrowRightIcon")}
+      {...rest}
     ></Icon>
   );
 }

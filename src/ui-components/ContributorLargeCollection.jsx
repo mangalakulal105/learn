@@ -5,28 +5,12 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { Contributor, Course } from "../models";
-import {
-  getOverrideProps,
-  useDataStoreBinding,
-} from "@aws-amplify/ui-react/internal";
+import * as React from "react";
 import ContributorLarge from "./ContributorLarge";
+import { getOverrideProps } from "./utils";
 import { Collection } from "@aws-amplify/ui-react";
 export default function ContributorLargeCollection(props) {
-  const { items: itemsProp, overrideItems, overrides, ...rest } = props;
-  const courseItems = useDataStoreBinding({
-    type: "collection",
-    model: Course,
-  }).items;
-  const itemsDataStore = useDataStoreBinding({
-    type: "collection",
-    model: Contributor,
-  }).items.map((item) => ({
-    ...item,
-    courses: courseItems.filter((model) => model.contributor === item.id),
-  }));
-  const items = itemsProp !== undefined ? itemsProp : itemsDataStore;
+  const { items, overrideItems, overrides, ...rest } = props;
   return (
     <Collection
       type="grid"
@@ -36,8 +20,8 @@ export default function ContributorLargeCollection(props) {
       alignItems="stretch"
       justifyContent="stretch"
       items={items || []}
-      {...rest}
       {...getOverrideProps(overrides, "ContributorLargeCollection")}
+      {...rest}
     >
       {(item, index) => (
         <ContributorLarge
