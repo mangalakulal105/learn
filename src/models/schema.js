@@ -364,13 +364,27 @@ export const schema = {
                     "name": "imageAltText",
                     "isArray": false,
                     "type": "String",
-                    "isRequired": true,
+                    "isRequired": false,
                     "attributes": []
                 },
                 "trailerEmbedId": {
                     "name": "trailerEmbedId",
                     "isArray": false,
                     "type": "String",
+                    "isRequired": false,
+                    "attributes": []
+                },
+                "courseUrlTitle": {
+                    "name": "courseUrlTitle",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
+                "published": {
+                    "name": "published",
+                    "isArray": false,
+                    "type": "Boolean",
                     "isRequired": false,
                     "attributes": []
                 }
@@ -599,5 +613,5 @@ export const schema = {
         }
     },
     "codegenVersion": "3.4.4",
-    "version": "d31fb7782a70224b6c2ca141e6b76dbb"
+    "version": "eb7b4acdb75800e2f47d0b9ef3fbfbc1"
 };

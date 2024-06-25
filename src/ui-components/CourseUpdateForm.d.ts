@@ -35,6 +35,8 @@ export declare type CourseUpdateFormInputValues = {
     isFeatured?: boolean;
     imageAltText?: string;
     trailerEmbedId?: string;
+    courseUrlTitle?: string;
+    published?: boolean;
 };
 export declare type CourseUpdateFormValidationValues = {
     title?: ValidationFunction<string>;
@@ -49,6 +51,8 @@ export declare type CourseUpdateFormValidationValues = {
     isFeatured?: ValidationFunction<boolean>;
     imageAltText?: ValidationFunction<string>;
     trailerEmbedId?: ValidationFunction<string>;
+    courseUrlTitle?: ValidationFunction<string>;
+    published?: ValidationFunction<boolean>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type CourseUpdateFormOverridesProps = {
@@ -65,6 +69,8 @@ export declare type CourseUpdateFormOverridesProps = {
     isFeatured?: PrimitiveOverrideProps<SwitchFieldProps>;
     imageAltText?: PrimitiveOverrideProps<TextFieldProps>;
     trailerEmbedId?: PrimitiveOverrideProps<TextFieldProps>;
+    courseUrlTitle?: PrimitiveOverrideProps<TextFieldProps>;
+    published?: PrimitiveOverrideProps<SwitchFieldProps>;
 } & EscapeHatchProps;
 export declare type CourseUpdateFormProps = React.PropsWithChildren<{
     overrides?: CourseUpdateFormOverridesProps | undefined | null;
