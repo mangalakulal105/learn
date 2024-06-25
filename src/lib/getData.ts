@@ -12,7 +12,7 @@ import {
 import { CardLayoutData, Context, CoursePageParams } from "../types/models";
 
 export function configureAmplify() {
-  Amplify.configure({ ...awsmobile, ssr: true });
+  Amplify.configure(awsmobile, { ssr: true });
 }
 
 configureAmplify();
