@@ -1,6 +1,6 @@
 import { Amplify, withSSRContext } from "aws-amplify";
 import { GetStaticPropsContext } from "next";
-import awsmobile from "../aws-exports";
+import awsmobile from "../amplifyconfiguration.json";
 import {
   Contributor,
   ContributorCourse,
