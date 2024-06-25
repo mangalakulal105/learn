@@ -202,8 +202,6 @@ export default function CourseCreateForm(props) {
     isFeatured: false,
     imageAltText: "",
     trailerEmbedId: "",
-    courseUrlTitle: "",
-    published: false,
   };
   const [title, setTitle] = React.useState(initialValues.title);
   const [timeHours, setTimeHours] = React.useState(initialValues.timeHours);
@@ -231,10 +229,6 @@ export default function CourseCreateForm(props) {
   const [trailerEmbedId, setTrailerEmbedId] = React.useState(
     initialValues.trailerEmbedId
   );
-  const [courseUrlTitle, setCourseUrlTitle] = React.useState(
-    initialValues.courseUrlTitle
-  );
-  const [published, setPublished] = React.useState(initialValues.published);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setTitle(initialValues.title);
@@ -250,8 +244,6 @@ export default function CourseCreateForm(props) {
     setIsFeatured(initialValues.isFeatured);
     setImageAltText(initialValues.imageAltText);
     setTrailerEmbedId(initialValues.trailerEmbedId);
-    setCourseUrlTitle(initialValues.courseUrlTitle);
-    setPublished(initialValues.published);
     setErrors({});
   };
   const [currentRequirementsValue, setCurrentRequirementsValue] =
@@ -268,10 +260,8 @@ export default function CourseCreateForm(props) {
     skillLevel: [{ type: "Required" }],
     dateCreated: [{ type: "Required" }],
     isFeatured: [{ type: "Required" }],
-    imageAltText: [],
+    imageAltText: [{ type: "Required" }],
     trailerEmbedId: [],
-    courseUrlTitle: [{ type: "Required" }],
-    published: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -328,8 +318,6 @@ export default function CourseCreateForm(props) {
           isFeatured,
           imageAltText,
           trailerEmbedId,
-          courseUrlTitle,
-          published,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -396,8 +384,6 @@ export default function CourseCreateForm(props) {
               isFeatured,
               imageAltText,
               trailerEmbedId,
-              courseUrlTitle,
-              published,
             };
             const result = onChange(modelFields);
             value = result?.title ?? value;
@@ -437,8 +423,6 @@ export default function CourseCreateForm(props) {
               isFeatured,
               imageAltText,
               trailerEmbedId,
-              courseUrlTitle,
-              published,
             };
             const result = onChange(modelFields);
             value = result?.timeHours ?? value;
@@ -478,8 +462,6 @@ export default function CourseCreateForm(props) {
               isFeatured,
               imageAltText,
               trailerEmbedId,
-              courseUrlTitle,
-              published,
             };
             const result = onChange(modelFields);
             value = result?.timeMinutes ?? value;
@@ -515,8 +497,6 @@ export default function CourseCreateForm(props) {
               isFeatured,
               imageAltText,
               trailerEmbedId,
-              courseUrlTitle,
-              published,
             };
             const result = onChange(modelFields);
             value = result?.learningObjective ?? value;
@@ -554,8 +534,6 @@ export default function CourseCreateForm(props) {
               isFeatured,
               imageAltText,
               trailerEmbedId,
-              courseUrlTitle,
-              published,
             };
             const result = onChange(modelFields);
             value = result?.description ?? value;
@@ -587,8 +565,6 @@ export default function CourseCreateForm(props) {
               isFeatured,
               imageAltText,
               trailerEmbedId,
-              courseUrlTitle,
-              published,
             };
             const result = onChange(modelFields);
             values = result?.requirements ?? values;
@@ -651,8 +627,6 @@ export default function CourseCreateForm(props) {
               isFeatured,
               imageAltText,
               trailerEmbedId,
-              courseUrlTitle,
-              published,
             };
             const result = onChange(modelFields);
             value = result?.image ?? value;
@@ -688,8 +662,6 @@ export default function CourseCreateForm(props) {
               isFeatured,
               imageAltText,
               trailerEmbedId,
-              courseUrlTitle,
-              published,
             };
             const result = onChange(modelFields);
             value = result?.skillLevel ?? value;
@@ -743,8 +715,6 @@ export default function CourseCreateForm(props) {
               isFeatured,
               imageAltText,
               trailerEmbedId,
-              courseUrlTitle,
-              published,
             };
             const result = onChange(modelFields);
             value = result?.dateCreated ?? value;
@@ -780,8 +750,6 @@ export default function CourseCreateForm(props) {
               isFeatured: value,
               imageAltText,
               trailerEmbedId,
-              courseUrlTitle,
-              published,
             };
             const result = onChange(modelFields);
             value = result?.isFeatured ?? value;
@@ -798,7 +766,7 @@ export default function CourseCreateForm(props) {
       ></SwitchField>
       <TextField
         label="Image alt text"
-        isRequired={false}
+        isRequired={true}
         isReadOnly={false}
         value={imageAltText}
         onChange={(e) => {
@@ -817,8 +785,6 @@ export default function CourseCreateForm(props) {
               isFeatured,
               imageAltText: value,
               trailerEmbedId,
-              courseUrlTitle,
-              published,
             };
             const result = onChange(modelFields);
             value = result?.imageAltText ?? value;
@@ -854,8 +820,6 @@ export default function CourseCreateForm(props) {
               isFeatured,
               imageAltText,
               trailerEmbedId: value,
-              courseUrlTitle,
-              published,
             };
             const result = onChange(modelFields);
             value = result?.trailerEmbedId ?? value;
@@ -870,80 +834,6 @@ export default function CourseCreateForm(props) {
         hasError={errors.trailerEmbedId?.hasError}
         {...getOverrideProps(overrides, "trailerEmbedId")}
       ></TextField>
-      <TextField
-        label="Course url title"
-        isRequired={true}
-        isReadOnly={false}
-        value={courseUrlTitle}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              title,
-              timeHours,
-              timeMinutes,
-              learningObjective,
-              description,
-              requirements,
-              image,
-              skillLevel,
-              dateCreated,
-              isFeatured,
-              imageAltText,
-              trailerEmbedId,
-              courseUrlTitle: value,
-              published,
-            };
-            const result = onChange(modelFields);
-            value = result?.courseUrlTitle ?? value;
-          }
-          if (errors.courseUrlTitle?.hasError) {
-            runValidationTasks("courseUrlTitle", value);
-          }
-          setCourseUrlTitle(value);
-        }}
-        onBlur={() => runValidationTasks("courseUrlTitle", courseUrlTitle)}
-        errorMessage={errors.courseUrlTitle?.errorMessage}
-        hasError={errors.courseUrlTitle?.hasError}
-        {...getOverrideProps(overrides, "courseUrlTitle")}
-      ></TextField>
-      <SwitchField
-        label="Published"
-        defaultChecked={false}
-        isDisabled={false}
-        isChecked={published}
-        onChange={(e) => {
-          let value = e.target.checked;
-          if (onChange) {
-            const modelFields = {
-              title,
-              timeHours,
-              timeMinutes,
-              learningObjective,
-              description,
-              requirements,
-              image,
-              skillLevel,
-              dateCreated,
-              isFeatured,
-              imageAltText,
-              trailerEmbedId,
-              courseUrlTitle,
-              published: value,
-            };
-            const result = onChange(modelFields);
-            value = result?.published ?? value;
-          }
-          if (errors.published?.hasError) {
-            runValidationTasks("published", value);
-          }
-          setPublished(value);
-        }}
-        onBlur={() => runValidationTasks("published", published)}
-        errorMessage={errors.published?.errorMessage}
-        hasError={errors.published?.hasError}
-        {...getOverrideProps(overrides, "published")}
-      ></SwitchField>
       <Flex
         justifyContent="space-between"
         {...getOverrideProps(overrides, "CTAFlex")}

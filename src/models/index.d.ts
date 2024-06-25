@@ -137,10 +137,8 @@ type EagerCourse = {
   readonly skillLevel: SkillLevel | keyof typeof SkillLevel;
   readonly dateCreated: string;
   readonly isFeatured: boolean;
-  readonly imageAltText?: string | null;
+  readonly imageAltText: string;
   readonly trailerEmbedId?: string | null;
-  readonly courseUrlTitle: string;
-  readonly published?: boolean | null;
 }
 
 type LazyCourse = {
@@ -157,10 +155,8 @@ type LazyCourse = {
   readonly skillLevel: SkillLevel | keyof typeof SkillLevel;
   readonly dateCreated: string;
   readonly isFeatured: boolean;
-  readonly imageAltText?: string | null;
+  readonly imageAltText: string;
   readonly trailerEmbedId?: string | null;
-  readonly courseUrlTitle: string;
-  readonly published?: boolean | null;
 }
 
 export declare type Course = LazyLoading extends LazyLoadingDisabled ? EagerCourse : LazyCourse
