@@ -5,38 +5,12 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { SortDirection } from "@aws-amplify/datastore";
-import { Contributor, Course, Tag } from "../models";
-import {
-  getOverrideProps,
-  useDataStoreBinding,
-} from "@aws-amplify/ui-react/internal";
+import * as React from "react";
 import CardLayout from "./CardLayout";
+import { getOverrideProps } from "./utils";
 import { Collection } from "@aws-amplify/ui-react";
 export default function CardLayoutCollection(props) {
-  const { items: itemsProp, overrideItems, overrides, ...rest } = props;
-  const itemsPagination = {
-    sort: (s) => s.dateCreated(SortDirection.DESCENDING),
-  };
-  const contributorItems = useDataStoreBinding({
-    type: "collection",
-    model: Contributor,
-  }).items;
-  const tagItems = useDataStoreBinding({
-    type: "collection",
-    model: Tag,
-  }).items;
-  const itemsDataStore = useDataStoreBinding({
-    type: "collection",
-    model: Course,
-    pagination: itemsPagination,
-  }).items.map((item) => ({
-    ...item,
-    contributors: contributorItems.filter((model) => model.course === item.id),
-    courseTags: tagItems.filter((model) => model.course === item.id),
-  }));
-  const items = itemsProp !== undefined ? itemsProp : itemsDataStore;
+  const { items, overrideItems, overrides, ...rest } = props;
   return (
     <Collection
       type="grid"
@@ -48,8 +22,8 @@ export default function CardLayoutCollection(props) {
       alignItems="stretch"
       justifyContent="stretch"
       items={items || []}
-      {...rest}
       {...getOverrideProps(overrides, "CardLayoutCollection")}
+      {...rest}
     >
       {(item, index) => (
         <CardLayout

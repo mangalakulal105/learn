@@ -66,14 +66,8 @@ export default function Home(data: {
 
   return (
     <MetaLayout metaInfo={metaInfo}>
-      <Banner
-        columnStart={{
-          base: 2,
-          small: 2,
-          medium: 2,
-          large: 2,
-        }}
-      />
+      <View columnStart={{ base: "1", small: "1", medium: "1", large: "2" }}>
+      <Banner />
       <View
         columnStart="2"
         marginTop={{ base: "0px", small: "0px", medium: "0px", large: "64px" }}
@@ -110,6 +104,7 @@ export default function Home(data: {
           </Button>
         </View>
       </ActionLayout>
+      </View>
     </MetaLayout>
   );
 }

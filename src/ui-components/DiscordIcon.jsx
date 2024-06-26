@@ -5,8 +5,8 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps } from "./utils";
 import { Icon } from "@aws-amplify/ui-react";
 export default function DiscordIcon(props) {
   const { overrides, ...rest } = props;
@@ -25,8 +25,8 @@ export default function DiscordIcon(props) {
           style: { transform: "translate(12.5%, 8.33%)" },
         },
       ]}
-      {...rest}
       {...getOverrideProps(overrides, "DiscordIcon")}
+      {...rest}
     ></Icon>
   );
 }

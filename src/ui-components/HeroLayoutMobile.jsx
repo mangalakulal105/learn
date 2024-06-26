@@ -5,8 +5,8 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps } from "./utils";
 import { Button, Flex, Icon, Text } from "@aws-amplify/ui-react";
 export default function HeroLayoutMobile(props) {
   const { course, level, overrides, ...rest } = props;
@@ -17,8 +17,8 @@ export default function HeroLayoutMobile(props) {
       width="369px"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...rest}
       {...getOverrideProps(overrides, "HeroLayoutMobile")}
+      {...rest}
     >
       <Flex
         gap="16px"

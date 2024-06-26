@@ -4,10 +4,28 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-import React from "react";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
 import { Contributor } from "../models";
-import { FlexProps } from "@aws-amplify/ui-react";
+import { FlexProps, IconProps, TextProps } from "@aws-amplify/ui-react";
+export declare type EscapeHatchProps = {
+    [elementHierarchy: string]: Record<string, unknown>;
+} | null;
+export declare type VariantValues = {
+    [key: string]: string;
+};
+export declare type Variant = {
+    variantValues: VariantValues;
+    overrides: EscapeHatchProps;
+};
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type ContributorHorizontalOverridesProps = {
+    ContributorHorizontal?: PrimitiveOverrideProps<FlexProps>;
+    "Frame 360"?: PrimitiveOverrideProps<FlexProps>;
+    "Ellipse 15"?: PrimitiveOverrideProps<IconProps>;
+    "Frame 331"?: PrimitiveOverrideProps<FlexProps>;
+    "Jane Doe"?: PrimitiveOverrideProps<TextProps>;
+    "Developer Advocate"?: PrimitiveOverrideProps<TextProps>;
+} & EscapeHatchProps;
 export declare type ContributorHorizontalProps = React.PropsWithChildren<Partial<FlexProps> & {
     contributor?: Contributor;
 } & {
@@ -16,6 +34,6 @@ export declare type ContributorHorizontalProps = React.PropsWithChildren<Partial
     property3?: "false" | "true";
     property4?: "false" | "true";
 } & {
-    overrides?: EscapeHatchProps | undefined | null;
+    overrides?: ContributorHorizontalOverridesProps | undefined | null;
 }>;
 export default function ContributorHorizontal(props: ContributorHorizontalProps): React.ReactElement;

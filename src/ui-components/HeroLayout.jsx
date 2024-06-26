@@ -5,12 +5,12 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import {
   getOverrideProps,
   getOverridesFromVariants,
   mergeVariantsAndOverrides,
-} from "@aws-amplify/ui-react/internal";
+} from "./utils";
 import { Button, Divider, Flex, Text } from "@aws-amplify/ui-react";
 export default function HeroLayout(props) {
   const { course, overrides: overridesProp, ...rest } = props;
@@ -77,8 +77,8 @@ export default function HeroLayout(props) {
       width="665px"
       position="relative"
       padding="0px 0px 0px 0px"
-      {...rest}
       {...getOverrideProps(overrides, "HeroLayout")}
+      {...rest}
     >
       <Flex
         gap="16px"

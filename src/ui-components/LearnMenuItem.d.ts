@@ -4,13 +4,29 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-import React from "react";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { FlexProps } from "@aws-amplify/ui-react";
+import * as React from "react";
+import { FlexProps, TextProps } from "@aws-amplify/ui-react";
+import { ExternalIconProps } from "./ExternalIcon";
+export declare type EscapeHatchProps = {
+    [elementHierarchy: string]: Record<string, unknown>;
+} | null;
+export declare type VariantValues = {
+    [key: string]: string;
+};
+export declare type Variant = {
+    variantValues: VariantValues;
+    overrides: EscapeHatchProps;
+};
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type LearnMenuItemOverridesProps = {
+    LearnMenuItem?: PrimitiveOverrideProps<FlexProps>;
+    Menu?: PrimitiveOverrideProps<TextProps>;
+    "Button Icon"?: ExternalIconProps;
+} & EscapeHatchProps;
 export declare type LearnMenuItemProps = React.PropsWithChildren<Partial<FlexProps> & {
     isDisabled?: "false" | "true";
     isHover?: "false" | "true";
 } & {
-    overrides?: EscapeHatchProps | undefined | null;
+    overrides?: LearnMenuItemOverridesProps | undefined | null;
 }>;
 export default function LearnMenuItem(props: LearnMenuItemProps): React.ReactElement;

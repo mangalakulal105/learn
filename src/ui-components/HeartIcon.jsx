@@ -5,8 +5,8 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps } from "./utils";
 import { Icon } from "@aws-amplify/ui-react";
 export default function HeartIcon(props) {
   const { overrides, ...rest } = props;
@@ -27,8 +27,8 @@ export default function HeartIcon(props) {
           style: { transform: "translate(8.33%, 16.67%)" },
         },
       ]}
-      {...rest}
       {...getOverrideProps(overrides, "HeartIcon")}
+      {...rest}
     ></Icon>
   );
 }

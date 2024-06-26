@@ -5,8 +5,8 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps } from "./utils";
 import { Icon } from "@aws-amplify/ui-react";
 export default function TwitterIcon(props) {
   const { overrides, ...rest } = props;
@@ -25,8 +25,8 @@ export default function TwitterIcon(props) {
           style: { transform: "translate(4.17%, 12.5%)" },
         },
       ]}
-      {...rest}
       {...getOverrideProps(overrides, "TwitterIcon")}
+      {...rest}
     ></Icon>
   );
 }

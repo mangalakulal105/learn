@@ -5,8 +5,8 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps } from "./utils";
 import { Button, Divider, Flex, Icon, Text, View } from "@aws-amplify/ui-react";
 import HeartIcon from "./HeartIcon";
 import LearnSocialBorderless from "./LearnSocialBorderless";
@@ -21,8 +21,8 @@ export default function LearnFooterMobile(props) {
       position="relative"
       padding="80px 80px 80px 80px"
       backgroundColor="rgba(242,243,243,1)"
-      {...rest}
       {...getOverrideProps(overrides, "LearnFooterMobile")}
+      {...rest}
     >
       <Flex
         padding="0px 0px 0px 0px"

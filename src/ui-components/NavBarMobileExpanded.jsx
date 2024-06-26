@@ -5,8 +5,8 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps } from "./utils";
 import LearnLogo from "./LearnLogo";
 import { Flex, View } from "@aws-amplify/ui-react";
 import CloseIcon from "./CloseIcon";
@@ -23,8 +23,8 @@ export default function NavBarMobileExpanded(props) {
       boxShadow="0px 4px 16px rgba(0, 0, 0, 0.03999999910593033)"
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(255,255,255,1)"
-      {...rest}
       {...getOverrideProps(overrides, "NavBarMobileExpanded")}
+      {...rest}
     >
       <Flex
         gap="282px"

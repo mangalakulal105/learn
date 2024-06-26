@@ -5,8 +5,8 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
+import { getOverrideProps } from "./utils";
 import { Button, Flex, Icon, Text } from "@aws-amplify/ui-react";
 import MadeLabel from "./MadeLabel";
 import LearnSocialBorderless from "./LearnSocialBorderless";
@@ -22,8 +22,8 @@ export default function LearnFooter(props) {
       position="relative"
       padding="80px 128px 128px 128px"
       backgroundColor="rgba(242,243,243,1)"
-      {...rest}
       {...getOverrideProps(overrides, "LearnFooter")}
+      {...rest}
     >
       <Flex
         gap="24px"

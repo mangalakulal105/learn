@@ -4,10 +4,23 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-import React from "react";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import * as React from "react";
 import { IconProps } from "@aws-amplify/ui-react";
+export declare type EscapeHatchProps = {
+    [elementHierarchy: string]: Record<string, unknown>;
+} | null;
+export declare type VariantValues = {
+    [key: string]: string;
+};
+export declare type Variant = {
+    variantValues: VariantValues;
+    overrides: EscapeHatchProps;
+};
+export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
+export declare type FacebookIconOverridesProps = {
+    FacebookIcon?: PrimitiveOverrideProps<IconProps>;
+} & EscapeHatchProps;
 export declare type FacebookIconProps = React.PropsWithChildren<Partial<IconProps> & {
-    overrides?: EscapeHatchProps | undefined | null;
+    overrides?: FacebookIconOverridesProps | undefined | null;
 }>;
 export default function FacebookIcon(props: FacebookIconProps): React.ReactElement;

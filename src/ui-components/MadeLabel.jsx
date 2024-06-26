@@ -5,12 +5,12 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import {
   getOverrideProps,
   getOverridesFromVariants,
   mergeVariantsAndOverrides,
-} from "@aws-amplify/ui-react/internal";
+} from "./utils";
 import AmplifyBorderLogo from "./AmplifyBorderLogo";
 import { Divider, Flex, Text } from "@aws-amplify/ui-react";
 import HeartIcon from "./HeartIcon";
@@ -75,8 +75,8 @@ export default function MadeLabel(props) {
       borderRadius="4px"
       padding="7px 19px 7px 19px"
       backgroundColor="rgba(255,255,255,1)"
-      {...rest}
       {...getOverrideProps(overrides, "MadeLabel")}
+      {...rest}
     >
       <AmplifyBorderLogo
         width="25.3px"

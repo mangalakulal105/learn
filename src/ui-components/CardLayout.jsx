@@ -5,12 +5,12 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import {
   getOverrideProps,
   getOverridesFromVariants,
   mergeVariantsAndOverrides,
-} from "@aws-amplify/ui-react/internal";
+} from "./utils";
 import {
   Button,
   Divider,
@@ -102,8 +102,8 @@ export default function CardLayout(props) {
       position="relative"
       borderRadius="8px"
       padding="0px 0px 0px 0px"
-      {...rest}
       {...getOverrideProps(overrides, "CardLayout")}
+      {...rest}
     >
       <View
         height="240px"

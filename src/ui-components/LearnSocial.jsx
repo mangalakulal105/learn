@@ -5,12 +5,12 @@
  **************************************************************************/
 
 /* eslint-disable */
-import React from "react";
+import * as React from "react";
 import {
   getOverrideProps,
   getOverridesFromVariants,
   mergeVariantsAndOverrides,
-} from "@aws-amplify/ui-react/internal";
+} from "./utils";
 import GithubIcon from "./GithubIcon";
 import { View } from "@aws-amplify/ui-react";
 export default function LearnSocial(props) {
@@ -53,8 +53,8 @@ export default function LearnSocial(props) {
       border="1px SOLID rgba(169,182,183,1)"
       borderRadius="100.5px"
       padding="0px 0px 0px 0px"
-      {...rest}
       {...getOverrideProps(overrides, "LearnSocial")}
+      {...rest}
     >
       <GithubIcon
         position="absolute"
